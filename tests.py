@@ -176,9 +176,9 @@ if not MISSING_VARS:
             self.assertEqual(len(sessid), 32)
 
         def test_ticket_get(self):
-            t = self.c.ticket_get(32)
-            self.assertEqual(t.TicketID, 32)
-            self.assertEqual(t.StateType, 'closed')
+            t = self.c.ticket_get('32')
+            self.assertEqual(t[0].TicketID, 32)
+            self.assertEqual(t[0].StateType, 'closed')
 
         def test_ticket_get_with_articles(self):
             t = self.c.ticket_get(32, get_articles=True)

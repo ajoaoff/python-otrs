@@ -197,7 +197,7 @@ class GenericTicketConnector(object):
 
 
         ret = self.req('TicketGet', **params)
-        return Ticket.from_xml(self._unpack_resp_one(ret))
+        return [Ticket.from_xml(t) for t in self._unpack_resp_several(ret)]
 
     @authenticated
     def ticket_search(self, **kwargs):
